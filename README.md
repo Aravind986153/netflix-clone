@@ -57,6 +57,10 @@ netflix-clone/
    git clone https://github.com/Aravind986153/netflix-clone.git
    cd netflix-clone
 
+2. Open index.html in your browser
+
+---
+
 
 🌍 Supported Languages
 
@@ -70,6 +74,8 @@ netflix-clone/
 | Chinese   | zh   |
 
 
+---
+
 
 👨‍💻 Author
 
@@ -77,6 +83,7 @@ Aravind R
 📧 ar986153@gmail.com
 🔗 LinkedIn
 
+---
 
 📄 License
 
