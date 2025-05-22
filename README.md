@@ -31,10 +31,8 @@ Hosted on [Netlify](https://myproject-aravindr2025.netlify.app/)
 netflix-clone/
 ├── index.html
 ├── browse.html
-├── css/
-│   └── styles.css
-├── js/
-│   └── script.js
-├── assets/
-│   └── images, icons, etc.
+├── styles.css
+├── script.js
+├── signin.html
+├── translations.html
 └── README.md
