@@ -32,7 +32,7 @@ const trendingMovies = [
     },
     { 
         title: "Dark", 
-        image: "https://m.media-amazon.com/images/M/MV5BOTk2NzUyOTctZDdlMS00MDJlLTgzNTEtNzQzYjFhNjA0YjBjXkEyXkFqcGdeQXVyMjg1NDcxNDE@._V1_.jpg",
+        image: "https://i.ibb.co/zHNgcznz/Screenshot-from-2025-05-22-20-16-45.png",
         description: "A missing child sets four families on a frantic hunt for answers as they uncover a time travel conspiracy.",
         youtubeId: "ESEUoa-mz2c"
     }
@@ -47,7 +47,7 @@ const popularMovies = [
     },
     { 
         title: "The Queen's Gambit", 
-        image: "https://m.media-amazon.com/images/M/MV5BM2EwMmRhMmUtMzBmMS00ZDQ3LTg4OGEtNjlkODk3ZTMxMmJlXkEyXkFqcGdeQXVyMjM5ODk1NDU@._V1_.jpg",
+        image: "https://i.ibb.co/pjsPMS0F/Screenshot-from-2025-05-22-20-14-56.png",
         description: "Orphaned chess prodigy Beth Harmon struggles with addiction in her quest to become the world's greatest chess player.",
         youtubeId: "4ruX2V5NvGc"
     },
