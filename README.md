@@ -6,7 +6,7 @@ A responsive, multilingual Netflix-like streaming UI built using HTML, CSS (Boot
 
 ## 🌐 Live Demo
 
-Hosted on [Netlify](https://your-netlify-site-name.netlify.app)  
+Hosted on [Netlify](https://myproject-aravindr2025.netlify.app/)  
 *(Update the above link after deployment)*
 
 ---
