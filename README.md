@@ -36,3 +36,48 @@ netflix-clone/
 ├── signin.html
 ├── translations.html
 └── README.md
+
+
+
+---
+
+## 🛠️ Tech Stack
+
+- HTML5
+- CSS3 (Bootstrap 5)
+- JavaScript
+- Bootstrap Icons
+
+---
+
+## 📦 How to Run Locally
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Aravind986153/netflix-clone.git
+   cd netflix-clone
+
+
+🌍 Supported Languages
+
+| Language  | Code |
+| --------- | ---- |
+| English   | en   |
+| Hindi     | hi   |
+| Malayalam | ml   |
+| German    | de   |
+| French    | fr   |
+| Chinese   | zh   |
+
+
+
+👨‍💻 Author
+
+Aravind R
+📧 ar986153@gmail.com
+🔗 LinkedIn
+
+
+📄 License
+
+This project is for educational and personal use only. Netflix branding and assets are owned by Netflix, Inc.
