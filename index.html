@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <meta name="description" content="Netflix Clone - Watch unlimited movies and TV shows">
+    <meta property="og:title" content="Netflix Clone">
+    <meta property="og:image" content="https://i.imgur.com/J5Q6S1j.png">
+    <meta name="theme-color" content="#E50914">
+    <link rel="icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico">
+</head>
+<body>
+
+<div id="loader">
+    <div class="netflix-loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="loading-text">Loading your entertainment</div>
+</div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" height="30">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Left-side Nav Links -->
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html" data-translate="home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="browse.html?type=tv" data-translate="tvshows">TV Shows</a></li>
+                <li class="nav-item"><a class="nav-link" href="browse.html?type=movies" data-translate="movies">Movies</a></li>
+                <li class="nav-item"><a class="nav-link" href="browse.html?type=mylist" data-translate="mylist">My List</a></li>
+            </ul>
+
+            <!-- Right-side: Search, Language, Sign In -->
+            <div class="d-flex align-items-center">
+                <!-- Search Bar (right side) -->
+                <div class="me-3 d-none d-lg-block" style="width: 300px;">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-dark text-white border-secondary"
+                               placeholder="Search..." id="searchInput" data-translate-placeholder="searchPlaceholder">
+                        <button class="btn btn-danger" type="button" id="searchButton">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Language Selector -->
+                <div class="dropdown me-3">
+                    <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="bi bi-translate"></i> <span id="currentLanguage">English</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item language-selector" href="#english" data-lang="en">English</a></li>
+                        <li><a class="dropdown-item language-selector" href="#hindi" data-lang="hi">Hindi</a></li>
+                        <li><a class="dropdown-item language-selector" href="#malayalam" data-lang="ml">Malayalam</a></li>
+                        <li><a class="dropdown-item language-selector" href="#german" data-lang="de">German</a></li>
+                        <li><a class="dropdown-item language-selector" href="#french" data-lang="fr">French</a></li>
+                        <li><a class="dropdown-item language-selector" href="#chinese" data-lang="zh">Chinese</a></li>
+                    </ul>
+                </div>
+
+                <!-- Sign In Button -->
+                <a href="signin.html" class="btn btn-danger" data-translate="signIn">Sign In</a>
+            </div>
+
+            <!-- Mobile Search -->
+            <div class="d-lg-none mt-3 w-100">
+                <div class="input-group">
+                    <input type="text" class="form-control bg-dark text-white border-secondary"
+                           placeholder="Search..." id="mobileSearchInput" data-translate-placeholder="searchPlaceholder">
+                    <button class="btn btn-danger" type="button" id="mobileSearchButton">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container h-100 d-flex align-items-center">
+            <div class="hero-content text-white text-center text-md-start">
+                <h1 class="display-3 fw-bold" data-translate="heroTitle">Unlimited movies, TV shows, and more.</h1>
+                <p class="lead fs-4" data-translate="heroSubtitle">Watch anything. Cancel anytime.</p>
+                <p class="fs-5" data-translate="heroText">Ready to watch? Enter your email.</p>
+                <div class="d-flex flex-column flex-md-row gap-2">
+                    <input type="email" class="form-control form-control-lg" placeholder="Email address" data-translate-placeholder="emailPlaceholder">
+                    <button class="btn btn-danger btn-lg px-4" style="width: 22rem; height: 3.5rem;" data-translate="getStarted">
+                        Get Started <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movie Rows -->
+    <div class="container-fluid py-5">
+        <h2 class="text-white ps-3 mb-4" data-translate="popularTitle">Popular on Netflix</h2>
+        <div class="row flex-nowrap overflow-auto movie-row pb-4 px-3" id="trending"></div>
+
+        <h2 class="text-white ps-3 mb-4" data-translate="trendingTitle">Trending Now</h2>
+        <div class="row flex-nowrap overflow-auto movie-row pb-4 px-3" id="popular"></div>
+
+        <h2 class="text-white ps-3 mb-4" data-translate="topRatedTitle">Top Rated</h2>
+        <div class="row flex-nowrap overflow-auto movie-row pb-4 px-3" id="top-rated"></div>
+    </div>
+
+    <footer aria-label="Footer information"></footer>
+    <!-- Footer -->
+    <footer class="bg-dark text-secondary py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Netflix Links -->
+                <div class="col-md-3">
+                    <p class="fs-5 text-white">Netflix</p>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="faq">FAQ</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="investorRelations">Investor Relations</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="privacy">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <p class="fs-5 text-white" data-translate="help">Help</p>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="account">Account</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="jobs">Jobs</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="waysToWatch">Ways to Watch</a></li>
+                    </ul>
+                </div>
+
+                <!-- Developer Info -->
+                <div class="col-md-3">
+                    <p class="fs-5 text-white" data-translate="developer">Developer</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-person-fill"></i> Aravind R </li>
+                        <li><i class="bi bi-github"></i> <a href="https://github.com/Aravind986153" class="text-decoration-none text-secondary">GitHub</a></li>
+                        <li><i class="bi bi-linkedin"></i> <a href="https://www.linkedin.com/in/aravindr017" class="text-decoration-none text-secondary">LinkedIn</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact for Queries -->
+                <div class="col-md-3">
+                    <p class="fs-5 text-white" data-translate="contact">Contact</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-envelope-fill"></i> <a href="mailto:ar986153@gmail.com" class="text-decoration-none text-secondary">Email</a></li>
+                        <li><i class="bi bi-globe"></i> <a href="https://aravindr.netlify.app" class="text-decoration-none text-secondary" data-translate="portfolio">Portfolio</a></li>
+                        <li><i class="bi bi-chat-left-text"></i> <a href="#" class="text-decoration-none text-secondary" data-bs-toggle="modal" data-bs-target="#queryModal" data-translate="submitQuery">Submit Query</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Language Selector + Copyright -->
+            <div class="dropdown">
+            <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-translate"></i> <span id="footerLanguage">English</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item language-selector" href="#english" data-lang="en">English</a></li>
+                <li><a class="dropdown-item language-selector" href="#hindi" data-lang="hi">Hindi</a></li>
+                <li><a class="dropdown-item language-selector" href="#malayalam" data-lang="ml">Malayalam</a></li>
+                <li><a class="dropdown-item language-selector" href="#german" data-lang="de">German</a></li>
+                <li><a class="dropdown-item language-selector" href="#french" data-lang="fr">French</a></li>
+                <li><a class="dropdown-item language-selector" href="#chinese" data-lang="zh">Chinese</a></li>
+            </ul>
+        </div>
+                <p class="mt-3" data-translate="copyright">© 2025 Netflix Clone | Developed by <strong>Aravind R</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Query Modal -->
+    <div class="modal fade" id="queryModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" data-translate="queryTitle">Submit a Query</h5>
+                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="queryForm">
+                        <div class="mb-3">
+                            <label for="queryEmail" class="form-label" data-translate="emailLabel">Email</label>
+                            <input type="email" class="form-control bg-secondary text-white" id="queryEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="queryMessage" class="form-label" data-translate="messageLabel">Message</label>
+                            <textarea class="form-control bg-secondary text-white" id="queryMessage" rows="3" required data-translate-placeholder="messagePlaceholder"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger" data-translate="submitButton">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content bg-black">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0 ratio ratio-16x9">
+                <iframe id="ytPlayer" width="100%" height="100%" 
+                        src="" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Bootstrap JS + Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Translation System -->
+    <script src="translations.js"></script>
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

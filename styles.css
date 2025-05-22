@@ -1,0 +1,348 @@
+/* General Styles */
+body {
+    background-color: #141414;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding-top: 70px; /* Offset for fixed navbar */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    padding: 15px 0;
+}
+
+.navbar-brand img {
+    width: 100px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg') no-repeat center center;
+    background-size: cover;
+    height: 90vh;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.hero-content {
+    z-index: 1;
+    max-width: 600px;
+}
+
+/* Movie Rows */
+.movie-row {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.movie-row::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.movie-card {
+    transition: transform 0.3s;
+    margin-right: 10px;
+    flex: 0 0 auto;
+    width: 350px;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.movie-card img {
+    border-radius: 4px;
+    width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer a:hover {
+    color: #e50914 !important;
+    text-decoration: underline !important;
+}
+
+/* Modal Styling */
+.modal-content {
+    border: 1px solid #333;
+}
+
+.modal-header {
+    border-bottom: 1px solid #333;
+}
+
+/* Form Input Styling */
+.form-control.bg-secondary {
+    border: 1px solid #444;
+}
+
+.form-control:focus {
+    background-color: #555;
+    color: white;
+    border-color: #e50914;
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+}
+
+
+
+/* Responsive Images */
+.movie-card img {
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+/* Fallback for 3D Animation */
+.no-webgl #loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-webgl #loader::before {
+    content: "N";
+    color: #E50914;
+    font-size: 10rem;
+    font-weight: 900;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  #netflix-3d { width: 150px; height: 150px; }
+  .progress-container { width: 250px; }
+}
+
+/* Netflix-inspired Modern Loading Animation */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.netflix-loader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.netflix-loader span {
+    width: 15px;
+    height: 60px;
+    background: #E50914;
+    animation: netflix-wave 1.2s infinite ease-in-out;
+}
+
+.netflix-loader span:nth-child(1) { animation-delay: -0.4s; }
+.netflix-loader span:nth-child(2) { animation-delay: -0.2s; }
+.netflix-loader span:nth-child(3) { animation-delay: 0s; }
+
+@keyframes netflix-wave {
+    0%, 40%, 100% { 
+        transform: scaleY(0.4);
+        background: #E50914; /* Netflix red */
+    }
+    20% { 
+        transform: scaleY(1);
+        background: #B81D24; /* Darker red */
+    }
+    60% {
+        background: #F5F5F1; /* Netflix silver */
+    }
+    80% {
+        background: #221F1F; /* Netflix black */
+    }
+}
+
+.loading-text {
+    margin-top: 30px;
+    color: #F5F5F1;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+    background: linear-gradient(90deg, #E50914, #B81D24, #F5F5F1, #221F1F);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 300% 300%;
+    animation: gradient-text 3s ease infinite;
+}
+
+@keyframes gradient-text {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Netflix-inspired Modern Loading Animation */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.netflix-loader {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.netflix-loader span {
+    width: 15px;
+    height: 60px;
+    background: #E50914;
+    animation: netflix-wave 1.2s infinite ease-in-out;
+}
+
+.netflix-loader span:nth-child(1) { animation-delay: -0.4s; }
+.netflix-loader span:nth-child(2) { animation-delay: -0.2s; }
+.netflix-loader span:nth-child(3) { animation-delay: 0s; }
+
+@keyframes netflix-wave {
+    0%, 40%, 100% { 
+        transform: scaleY(0.4);
+        background: #E50914; /* Netflix red */
+    }
+    20% { 
+        transform: scaleY(1);
+        background: #B81D24; /* Darker red */
+    }
+    60% {
+        background: #F5F5F1; /* Netflix silver */
+    }
+    80% {
+        background: #221F1F; /* Netflix black */
+    }
+}
+
+.loading-text {
+    margin-top: 30px;
+    color: #F5F5F1;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+    background: linear-gradient(90deg, #E50914, #B81D24, #F5F5F1, #221F1F);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 300% 300%;
+    animation: gradient-text 3s ease infinite;
+}
+
+@keyframes gradient-text {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Search Bar Styles */
+#searchInput, #mobileSearchInput {
+    color: white !important;
+    border-color: #333 !important;
+}
+
+#searchInput:focus, #mobileSearchInput:focus {
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+    border-color: #e50914 !important;
+}
+
+/* Search Modal Styles */
+#searchModal .modal-content {
+    border: 1px solid #333;
+}
+
+#searchModal .modal-header {
+    border-bottom: 1px solid #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding-top: 10px;
+    }
+}
+
+
+/* Video Modal Styles */
+#videoModal .modal-content {
+    border-radius: 0;
+}
+
+#videoModal .modal-body {
+    background: #000;
+}
+
+#videoModal iframe {
+    border: none;
+}
+
+/* Close button positioning */
+#videoModal .btn-close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 10;
+    filter: invert(1);
+    opacity: 1;
+    background: none;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+#videoModal .btn-close:hover {
+    opacity: 0.8;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #videoModal .modal-dialog {
+        max-width: 100vw;
+        margin: 0;
+    }
+    
+    #videoModal .btn-close {
+        right: 10px;
+        top: 10px;
+    }
+}

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" height="30">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Left-side Nav Links -->
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html" data-translate="home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="browse.html?type=tv" data-translate="tvshows">TV Shows</a></li>
+                <li class="nav-item"><a class="nav-link" href="browse.html?type=movies" data-translate="movies">Movies</a></li>
+                <li class="nav-item"><a class="nav-link" href="browse.html?type=mylist" data-translate="mylist">My List</a></li>
+            </ul>
+
+            <!-- Right-side: Search, Language, Sign In -->
+            <div class="d-flex align-items-center">
+                <!-- Search Bar (right side) -->
+                <div class="me-3 d-none d-lg-block" style="width: 300px;">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-dark text-white border-secondary"
+                               placeholder="Search..." id="searchInput" data-translate-placeholder="searchPlaceholder">
+                        <button class="btn btn-danger" type="button" id="searchButton">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Language Selector -->
+                <div class="dropdown me-3">
+                    <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="bi bi-translate"></i> <span id="currentLanguage">English</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item language-selector" href="#english" data-lang="en">English</a></li>
+                        <li><a class="dropdown-item language-selector" href="#hindi" data-lang="hi">Hindi</a></li>
+                        <li><a class="dropdown-item language-selector" href="#malayalam" data-lang="ml">Malayalam</a></li>
+                        <li><a class="dropdown-item language-selector" href="#german" data-lang="de">German</a></li>
+                        <li><a class="dropdown-item language-selector" href="#french" data-lang="fr">French</a></li>
+                        <li><a class="dropdown-item language-selector" href="#chinese" data-lang="zh">Chinese</a></li>
+                    </ul>
+                </div>
+
+                <!-- Sign In Button -->
+                <a href="signin.html" class="btn btn-danger" data-translate="signIn">Sign In</a>
+            </div>
+
+            <!-- Mobile Search -->
+            <div class="d-lg-none mt-3 w-100">
+                <div class="input-group">
+                    <input type="text" class="form-control bg-dark text-white border-secondary"
+                           placeholder="Search..." id="mobileSearchInput" data-translate-placeholder="searchPlaceholder">
+                    <button class="btn btn-danger" type="button" id="mobileSearchButton">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    
+    <!-- Hero with Category Title -->
+    <div class="category-hero" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png');">
+        <div class="container py-5">
+            <h1 id="categoryTitle" class="display-3 fw-bold">TV Shows</h1>
+        </div>
+    </div>
+
+    <!-- Dynamic Content -->
+    <div class="container my-5" id="categoryContent">
+        <!-- Loaded via JavaScript -->
+    </div>
+
+
+    <!-- Video Player Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content bg-black">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0 ratio ratio-16x9">
+                <iframe id="ytPlayer" width="100%" height="100%" 
+                        src="" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-secondary py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Netflix Links -->
+                <div class="col-md-3">
+                    <p class="fs-5 text-white">Netflix</p>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="faq">FAQ</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="investorRelations">Investor Relations</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="privacy">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <p class="fs-5 text-white" data-translate="help">Help</p>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="account">Account</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="jobs">Jobs</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" data-translate="waysToWatch">Ways to Watch</a></li>
+                    </ul>
+                </div>
+
+                <!-- Developer Info -->
+                <div class="col-md-3">
+                    <p class="fs-5 text-white" data-translate="developer">Developer</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-person-fill"></i> Aravind R </li>
+                        <li><i class="bi bi-github"></i> <a href="https://github.com/Aravind986153" class="text-decoration-none text-secondary">GitHub</a></li>
+                        <li><i class="bi bi-linkedin"></i> <a href="https://www.linkedin.com/in/aravindr017" class="text-decoration-none text-secondary">LinkedIn</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact for Queries -->
+                <div class="col-md-3">
+                    <p class="fs-5 text-white" data-translate="contact">Contact</p>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-envelope-fill"></i> <a href="mailto:ar986153@gmail.com" class="text-decoration-none text-secondary">Email</a></li>
+                        <li><i class="bi bi-globe"></i> <a href="https://aravindr.netlify.app" class="text-decoration-none text-secondary" data-translate="portfolio">Portfolio</a></li>
+                        <li><i class="bi bi-chat-left-text"></i> <a href="#" class="text-decoration-none text-secondary" data-bs-toggle="modal" data-bs-target="#queryModal" data-translate="submitQuery">Submit Query</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Language Selector + Copyright -->
+            <div class="mt-4">
+                <div class="dropdown">
+                <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="bi bi-translate"></i> <span id="footerLanguage">English</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item language-selector" href="#english" data-lang="en">English</a></li>
+                <li><a class="dropdown-item language-selector" href="#hindi" data-lang="hi">Hindi</a></li>
+                <li><a class="dropdown-item language-selector" href="#malayalam" data-lang="ml">Malayalam</a></li>
+                <li><a class="dropdown-item language-selector" href="#german" data-lang="de">German</a></li>
+                <li><a class="dropdown-item language-selector" href="#french" data-lang="fr">French</a></li>
+                <li><a class="dropdown-item language-selector" href="#chinese" data-lang="zh">Chinese</a></li>
+            </ul>
+        </div>
+                <p class="mt-3" data-translate="copyright">© 2025 Netflix Clone | Developed by <strong>Aravind R</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Query Modal -->
+    <div class="modal fade" id="queryModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" data-translate="queryTitle">Submit a Query</h5>
+                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="queryForm">
+                        <div class="mb-3">
+                            <label for="queryEmail" class="form-label" data-translate="emailLabel">Email</label>
+                            <input type="email" class="form-control bg-secondary text-white" id="queryEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="queryMessage" class="form-label" data-translate="messageLabel">Message</label>
+                            <textarea class="form-control bg-secondary text-white" id="queryMessage" rows="3" required data-translate-placeholder="messagePlaceholder"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger" data-translate="submitButton">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // Get category from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('type') || 'tv';
+
+    // Set page title and heading
+    document.title = `${category.charAt(0).toUpperCase() + category.slice(1)} | Netflix Clone`;
+    document.getElementById('categoryTitle').textContent = 
+        category === 'movies' ? 'Movies' : 
+        category === 'mylist' ? 'My List' : 'TV Shows';
+
+    // Function to play video
+    function playVideo(youtubeId) {
+        const player = document.getElementById('ytPlayer');
+        player.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
+        
+        const videoModal = new bootstrap.Modal(document.getElementById('videoModal'));
+        videoModal.show();
+        
+        // Reset video when modal closes
+        document.getElementById('videoModal').addEventListener('hidden.bs.modal', function() {
+            player.src = '';
+        });
+    }
+
+    // Import movie data from script.js
+    const script = document.createElement('script');
+    script.src = 'script.js';
+    script.onload = function() {
+        // Load appropriate content after movie data is available
+        const content = {
+            'tv': trendingMovies,
+            'movies': popularMovies,
+            'mylist': topRatedMovies
+        }[category];
+
+        const container = document.getElementById('categoryContent');
+        if (container && content) {
+            container.innerHTML = `
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                    ${content.map(movie => `
+                        <div class="col">
+                            <div class="card bg-dark text-white h-100">
+                                <img src="${movie.image}" alt="${movie.title}" class="card-img-top img-fluid" 
+                                     onerror="this.src='https://via.placeholder.com/300x450/333/999999?text=Poster+Not+Available'">
+                                <div class="card-body">
+                                    <h6 class="card-title" style="color: red;">${movie.title}</h6>
+                                    <p class="card-text small text-white">${movie.description}</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-top-0">
+                                    <button class="btn btn-sm btn-danger w-100 mb-2 play-btn" 
+                                            data-youtube-id="${movie.youtubeId}">
+                                        ▶ Play
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-light w-100" style="color: aqua;">
+                                        Add to Watchlist
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            // Add event listeners to all play buttons
+            document.querySelectorAll('.play-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const youtubeId = this.getAttribute('data-youtube-id');
+                    playVideo(youtubeId);
+                });
+            });
+        }
+    };
+    document.head.appendChild(script);
+</script>
+    <script src="translations.js"></script>
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
