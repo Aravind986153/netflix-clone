@@ -27,7 +27,7 @@ Hosted on [Netlify](https://myproject-aravindr2025.netlify.app/)
 
 ## 📁 Folder Structure
 
-```bash
+
 netflix-clone/
 ├── index.html
 ├── browse.html
