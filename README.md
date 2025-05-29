@@ -81,7 +81,7 @@ netflix-clone/
 
 Aravind R
 📧 ar986153@gmail.com
-🔗 LinkedIn
+🔗 LinkedIn : https://www.linkedin.com/in/aravindr017
 
 ---
 
